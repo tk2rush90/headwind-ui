@@ -1,0 +1,24 @@
+@tailwind components;
+
+@layer components {
+  :host {
+    @apply w-full h-full fixed flex items-center justify-center bg-amber-500 overflow-auto;
+  }
+
+  .headwind-options {
+    @apply bg-white translate-y-1 rounded-md max-h-[150px] overflow-auto p-1;
+  }
+
+  .headwind-select,
+  .headwind-options {
+    @apply shadow-xl;
+  }
+
+  .headwind-option {
+    @apply hover:bg-amber-200 cursor-pointer select-none;
+
+    &.headwind-focused {
+      @apply bg-amber-200;
+    }
+  }
+}

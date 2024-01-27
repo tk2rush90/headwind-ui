@@ -1,0 +1,231 @@
+<headwind-select [(value)]="selectValue" class="w-[250px]">
+  <div class="flex w-full items-center justify-between space-x-3">
+    <div class="shrink grow basis-0 w-auto">
+      {{ selectValue || 'Select options...' }}
+    </div>
+
+    <div>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="m19.5 8.25-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <headwind-options
+    *headwindOptionsTemplate
+    [@fade]="'show'">
+    @for (item of options; track item) {
+      <headwind-option [value]="item">
+        {{ item }}
+      </headwind-option>
+    }
+  </headwind-options>
+</headwind-select>
+
+<headwind-select [(ngModel)]="selectValue" disabled>
+  <div class="flex items-center justify-between space-x-3">
+    <div class="shrink grow basis-0 w-auto">
+      {{ selectValue || 'Select options...' }}
+    </div>
+
+    <div>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="m19.5 8.25-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <headwind-options *headwindOptionsTemplate>
+    @for (item of options; track item) {
+      <headwind-option [value]="item">
+        {{ item }}
+      </headwind-option>
+    }
+  </headwind-options>
+</headwind-select>
+
+<headwind-select [(ngModel)]="selectArrayValue" multiple>
+  <div class="flex items-center justify-between space-x-3">
+    <div class="shrink grow basis-0 w-auto">
+      @if (selectArrayValue.length > 0) {
+        {{ selectArrayValue }}
+      } @else {
+        Select options...
+      }
+    </div>
+
+    <div>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="m19.5 8.25-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <headwind-options *headwindOptionsTemplate>
+    @for (item of options; track item) {
+      <headwind-option [value]="item">
+        {{ item }}
+      </headwind-option>
+    }
+  </headwind-options>
+</headwind-select>
+
+<headwind-select [formControl]="selectArrayValueControl" multiple>
+  <div class="flex items-center justify-between space-x-3">
+    <div class="shrink grow basis-0 w-auto">
+      @if ((selectArrayValueControl.value || []).length > 0) {
+        {{ selectArrayValueControl.value }}
+      } @else {
+        Select options...
+      }
+    </div>
+
+    <div>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="m19.5 8.25-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <headwind-options *headwindOptionsTemplate>
+    @for (item of options; track item) {
+      <headwind-option [value]="item">
+        {{ item }}
+      </headwind-option>
+    }
+  </headwind-options>
+</headwind-select>
+
+<!-- todo context menu / toggle button -->
+
+<headwind-checkbox [(ngModel)]="checkboxValue" class="cursor-pointer select-none flex items-center space-x-1">
+  <headwind-checkbox-button class="border rounded border-zinc-300 aspect-square w-5 flex items-center justify-center">
+    <svg
+      *headwindCheckboxChecked
+      class="absolute w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="m4.5 12.75 6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </headwind-checkbox-button>
+
+  <headwind-checkbox-label class="block text-sm">
+    Label... {{ checkboxValue }}
+  </headwind-checkbox-label>
+</headwind-checkbox>
+
+<headwind-checkbox checked class="cursor-pointer select-none flex items-center space-x-1">
+  <headwind-checkbox-button class="border rounded border-zinc-300 aspect-square w-5 flex items-center justify-center">
+    <svg
+      *headwindCheckboxChecked
+      class="absolute w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="m4.5 12.75 6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </headwind-checkbox-button>
+
+  <headwind-checkbox-label class="block text-sm">
+    Label...
+  </headwind-checkbox-label>
+</headwind-checkbox>
+
+<headwind-radio-group [(ngModel)]="radioValue">
+  @for (item of options; track item) {
+    <headwind-radio [value]="item" class="flex items-center space-x-1 cursor-pointer select-none">
+      <headwind-radio-button class="flex items-center justify-center aspect-square w-5 rounded-full border border-zinc-300">
+        <div *headwindRadioSelected class="absolute aspect-square w-2 rounded-full bg-blue-500"></div>
+      </headwind-radio-button>
+
+      <headwind-radio-label class="text-sm">
+        {{ item }}
+      </headwind-radio-label>
+    </headwind-radio>
+  }
+</headwind-radio-group>
+
+<headwind-accordion class="block">
+  <headwind-accordion-button class="block cursor-pointer select-none p-5 hover:bg-zinc-50">
+    Open it !
+  </headwind-accordion-button>
+
+  <ng-template headwindAccordionContent>
+    <div>
+      Content
+    </div>
+  </ng-template>
+</headwind-accordion>
+
+<headwind-accordion class="block">
+  <headwind-accordion-button class="block cursor-pointer select-none p-5 hover:bg-zinc-50">
+    Open it !
+  </headwind-accordion-button>
+
+  <ng-template headwindAccordionContent>
+    <div>
+      Content
+    </div>
+  </ng-template>
+</headwind-accordion>
+
+<headwind-accordion class="block">
+  <headwind-accordion-button class="block cursor-pointer select-none p-5 hover:bg-zinc-50">
+    Open it !
+  </headwind-accordion-button>
+
+  <ng-template headwindAccordionContent>
+    <div [@slide]="'show'" class="overflow-hidden">
+      Content
+    </div>
+  </ng-template>
+</headwind-accordion>
+
+<button (click)="openOverlay(overlay)">
+  Open Overlay
+</button>
+
+<ng-template #overlay>
+  <div [@fade]="'show'" class="z-[999] bg-white fixed top-1/2 left-1/2">
+    Overlay is Here
+  </div>
+</ng-template>
+
+<headwind-tab-group tabKey="Key 1">
+  <headwind-tab-button-group class="flex items-stretch space-x-1">
+    @for (item of tabs; track item.key) {
+      <button
+        [tabKey]="item.key"
+        headwindTabButton>
+        {{ item.label }}
+      </button>
+    }
+  </headwind-tab-button-group>
+
+  <headwind-tab-content-group>
+    @for (item of tabs; track item.key) {
+      <ng-template
+        [tabKey]="item.key"
+        headwindTabContent>
+        <div>
+          {{ item.content }}
+        </div>
+      </ng-template>
+    }
+  </headwind-tab-content-group>
+</headwind-tab-group>
+
+<headwind-popover>
+  <button headwindPopoverButton>
+    Open Popover
+  </button>
+
+  <headwind-popover-overlay *headwindPopoverOverlayTemplate [@fade]="'show'" direction="horizontal" pinPriority="bottom" class="block w-[400px] bg-white shadow-2xl rounded-2xl p-6">
+    Overlay?
+  </headwind-popover-overlay>
+</headwind-popover>
+
+<a [routerLink]="['/']" class="block">
+  home
+</a>

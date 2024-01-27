@@ -1,0 +1,22 @@
+<headwind-select [(value)]="value"
+                 class="flex items-center justify-between bg-white px-2 h-8 rounded-md space-x-2 w-[200px] cursor-pointer select-none shadow-xl">
+  <div class="text-sm">
+    {{ value }}
+  </div>
+
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+         class="w-4 h-4">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+    </svg>
+  </div>
+
+  <headwind-options *headwindOptionsTemplate
+                    class="bg-white translate-y-1 rounded-md max-h-[150px] overflow-auto p-1 shadow-xl">
+    @for (item of options; track item) {
+      <headwind-option [value]="item" class="block p-2 text-sm rounded">
+        {{ item }}
+      </headwind-option>
+    }
+  </headwind-options>
+</headwind-select>

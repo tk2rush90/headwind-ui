@@ -1,0 +1,55 @@
+@tailwind components;
+
+@layer components {
+  :host {
+    @apply block h-[9999px];
+  }
+
+  .headwind-select {
+    @apply inline-flex h-10 rounded border border-zinc-300 p-3 cursor-pointer select-none outline-0;
+
+    &[disabled] {
+      @apply bg-zinc-100 cursor-not-allowed;
+    }
+
+    &:focus {
+      @apply border-blue-400;
+    }
+  }
+
+  .headwind-options {
+    @apply block bg-white shadow-xl rounded-md overflow-auto py-1.5 max-h-[140px];
+  }
+
+  .headwind-option {
+    @apply block p-2 cursor-pointer hover:bg-blue-100;
+
+    &.headwind-focused {
+      @apply bg-blue-100;
+    }
+
+    &.headwind-selected {
+      @apply bg-blue-500
+    }
+  }
+
+  .headwind-radio-group {
+    &:focus {
+      .radio-button[selected] {
+        @apply border-blue-400;
+      }
+    }
+  }
+
+  .radio-item {
+    @apply flex items-center;
+  }
+
+  .radio-button {
+    @apply aspect-square w-6 rounded-full cursor-pointer border border-zinc-300 flex items-center justify-center;
+  }
+
+  .radio-icon {
+    @apply w-2 aspect-square bg-blue-500 rounded-full;
+  }
+}
