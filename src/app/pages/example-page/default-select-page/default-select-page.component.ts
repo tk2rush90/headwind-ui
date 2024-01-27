@@ -4,6 +4,8 @@ import { HeadwindOptionsComponent } from '../../../../../projects/headwind-ui/sr
 import { HeadwindSelectComponent } from '../../../../../projects/headwind-ui/src/components/headwind-select/headwind-select.component';
 import { HeadwindOptionsTemplateDirective } from '../../../../../projects/headwind-ui/src/components/headwind-select/headwind-options-template/headwind-options-template.directive';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { YDirections } from '../../../../../projects/headwind-ui/src/types/y-directions';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-default-select-page',
@@ -13,6 +15,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     HeadwindOptionsComponent,
     HeadwindOptionsTemplateDirective,
     HeadwindOptionComponent,
+    FormsModule,
   ],
   templateUrl: './default-select-page.component.html',
   styleUrl: './default-select-page.component.scss',
@@ -50,4 +53,10 @@ export class DefaultSelectPageComponent {
     'Fatima Shaw',
     'Alexandria Huynh',
   ];
+
+  actualDirection: YDirections = 'bottom';
+
+  onActualDirectionChange(direction: YDirections): void {
+    this.actualDirection = direction;
+  }
 }

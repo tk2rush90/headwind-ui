@@ -5,6 +5,7 @@ import {
   EmbeddedViewRef,
   EventEmitter,
   Input,
+  OnDestroy,
   Output,
   ViewChild,
   ViewContainerRef,
@@ -24,13 +25,14 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     class: 'headwind-accordion',
   },
 })
-export class HeadwindAccordionComponent implements AfterViewInit {
+export class HeadwindAccordionComponent implements AfterViewInit, OnDestroy {
   @Output() openedChange = new EventEmitter<boolean>();
   @ViewChild('accordionContentContainer', { read: ViewContainerRef }) accordionContentContainer?: ViewContainerRef;
   @ContentChild(HeadwindAccordionContentDirective, { descendants: true })
   accordionContent?: HeadwindAccordionContentDirective;
 
   private _contentEmbeddedViewRef?: EmbeddedViewRef<any>;
+  private _openTimeoutId?: any;
 
   constructor(private readonly _headwindAccordionService: HeadwindAccordionService) {
     this._headwindAccordionService.toggleOpened.pipe(takeUntilDestroyed()).subscribe(() => {
@@ -44,12 +46,12 @@ export class HeadwindAccordionComponent implements AfterViewInit {
   private _opened = false;
 
   get opened(): boolean {
-    return this._opened;
+    return this._headwindAccordionService.opened;
   }
 
   @Input()
   set opened(value: boolean) {
-    this._opened = value;
+    this._headwindAccordionService.opened = value;
 
     if (value) {
       this.open();
@@ -59,9 +61,16 @@ export class HeadwindAccordionComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (this.opened) {
-      this.open();
-    }
+    // use timeout to prevent NG0100 error
+    this._openTimeoutId = setTimeout(() => {
+      if (this.opened) {
+        this.open();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this._openTimeoutId);
   }
 
   open(): void {

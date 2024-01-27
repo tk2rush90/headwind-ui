@@ -3,7 +3,9 @@ import {
   Component,
   ContentChildren,
   ElementRef,
+  EventEmitter,
   HostListener,
+  Output,
   QueryList,
   Renderer2,
 } from '@angular/core';
@@ -13,6 +15,7 @@ import { HeadwindClickDetector } from '../../../../services/headwind-click-detec
 import { HeadwindWindowService } from '../../../../services/headwind-window.service';
 import { HeadwindPlatformService } from '../../../../services/headwind-platform.service';
 import { HeadwindSelectService } from '../../service/headwind-select.service';
+import { YDirections } from '../../../../types/y-directions';
 
 @Component({
   selector: 'headwind-options',
@@ -24,9 +27,12 @@ import { HeadwindSelectService } from '../../service/headwind-select.service';
   host: {
     tabindex: '0',
     class: 'headwind-options',
+    role: 'listbox',
   },
 })
 export class HeadwindOptionsComponent implements AfterContentInit {
+  @Output() actualDirectionChange = new EventEmitter<YDirections>();
+
   @ContentChildren(HeadwindOptionComponent, { descendants: true })
   optionList?: QueryList<HeadwindOptionComponent>;
 
@@ -190,12 +196,15 @@ export class HeadwindOptionsComponent implements AfterContentInit {
       this._renderer.setStyle(options, 'width', selectDomRect.width + 'px');
       this._renderer.setStyle(options, 'left', selectDomRect.left + 'px');
 
-      if (this._headwindWindowService.isBottomSpaceAvailable(selectDomRect.top, optionsDomRect.height)) {
+      if (this._headwindWindowService.isBottomSpaceAvailable(selectDomRect.bottom, optionsDomRect.height)) {
         this._renderer.setStyle(options, 'top', selectDomRect.bottom + 'px');
-      } else if (this._headwindWindowService.isTopSpaceAvailable(selectDomRect.bottom, optionsDomRect.height)) {
-        this._renderer.setStyle(options, 'bottom', `calc(100% - ${selectDomRect.bottom}px)`);
+        this._emitActualDirectionBottom();
+      } else if (this._headwindWindowService.isTopSpaceAvailable(selectDomRect.top, optionsDomRect.height)) {
+        this._renderer.setStyle(options, 'bottom', `calc(100% - ${selectDomRect.top}px)`);
+        this._emitActualDirectionTop();
       } else {
         this._renderer.setStyle(options, 'top', selectDomRect.bottom + 'px');
+        this._emitActualDirectionBottom();
       }
     }
   }
@@ -214,5 +223,13 @@ export class HeadwindOptionsComponent implements AfterContentInit {
       host.scrollTop =
         scrollTop + (optionDomRect.y - hostDomRect.y) - hostDomRect.height / 2 + optionDomRect.height / 2;
     }
+  }
+
+  private _emitActualDirectionTop(): void {
+    this.actualDirectionChange.emit('top');
+  }
+
+  private _emitActualDirectionBottom(): void {
+    this.actualDirectionChange.emit('bottom');
   }
 }

@@ -14,7 +14,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   providers: [HeadwindTabGroupService],
 })
 export class HeadwindTabGroupComponent {
-  @Output() tabKeyChange = new EventEmitter<void>();
+  @Output() tabKeyChange = new EventEmitter<any>();
 
   private _previousTabKey: any;
 

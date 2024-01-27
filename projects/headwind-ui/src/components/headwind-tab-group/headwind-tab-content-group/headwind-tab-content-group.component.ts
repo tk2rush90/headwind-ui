@@ -60,6 +60,6 @@ export class HeadwindTabContentGroupComponent implements AfterViewInit, OnDestro
   }
 
   getTabContentByKey(key: string): HeadwindTabContentDirective | undefined {
-    return this.tabContentList?.find((tabContent) => tabContent.tabKey === key);
+    return this.tabContentList?.find((tabContent) => tabContent.headwindTabContent.tabKey === key);
   }
 }

@@ -112,9 +112,9 @@
     </svg>
   </headwind-checkbox-button>
 
-  <headwind-checkbox-label class="block text-sm">
+  <label class="block text-sm">
     Label... {{ checkboxValue }}
-  </headwind-checkbox-label>
+  </label>
 </headwind-checkbox>
 
 <headwind-checkbox checked class="cursor-pointer select-none flex items-center space-x-1">
@@ -127,9 +127,9 @@
     </svg>
   </headwind-checkbox-button>
 
-  <headwind-checkbox-label class="block text-sm">
+  <label class="block text-sm">
     Label...
-  </headwind-checkbox-label>
+  </label>
 </headwind-checkbox>
 
 <headwind-radio-group [(ngModel)]="radioValue">
@@ -139,9 +139,9 @@
         <div *headwindRadioSelected class="absolute aspect-square w-2 rounded-full bg-blue-500"></div>
       </headwind-radio-button>
 
-      <headwind-radio-label class="text-sm">
+      <label class="text-sm">
         {{ item }}
-      </headwind-radio-label>
+      </label>
     </headwind-radio>
   }
 </headwind-radio-group>
@@ -195,23 +195,17 @@
 <headwind-tab-group tabKey="Key 1">
   <headwind-tab-button-group class="flex items-stretch space-x-1">
     @for (item of tabs; track item.key) {
-      <button
-        [tabKey]="item.key"
-        headwindTabButton>
+      <headwind-tab-button [tabKey]="item.key">
         {{ item.label }}
-      </button>
+      </headwind-tab-button>
     }
   </headwind-tab-button-group>
 
   <headwind-tab-content-group>
     @for (item of tabs; track item.key) {
-      <ng-template
-        [tabKey]="item.key"
-        headwindTabContent>
-        <div>
-          {{ item.content }}
-        </div>
-      </ng-template>
+      <div *headwindTabContent="{ tabKey: item }">
+        {{ item.content }}
+      </div>
     }
   </headwind-tab-content-group>
 </headwind-tab-group>

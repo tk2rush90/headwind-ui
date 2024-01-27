@@ -8,10 +8,8 @@ import { HeadwindCheckboxComponent } from '../../../../projects/headwind-ui/src/
 import { HeadwindRadioGroupComponent } from '../../../../projects/headwind-ui/src/components/headwind-radio-group/headwind-radio-group.component';
 import { HeadwindRadioComponent } from '../../../../projects/headwind-ui/src/components/headwind-radio-group/headwind-radio/headwind-radio.component';
 import { HeadwindCheckboxButtonComponent } from '../../../../projects/headwind-ui/src/components/headwind-checkbox/headwind-checkbox-button/headwind-checkbox-button.component';
-import { HeadwindCheckboxLabelComponent } from '../../../../projects/headwind-ui/src/components/headwind-checkbox/headwind-checkbox-label/headwind-checkbox-label.component';
 import { HeadwindCheckboxCheckedDirective } from '../../../../projects/headwind-ui/src/components/headwind-checkbox/headwind-checkbox-button/headwind-checkbox-checked/headwind-checkbox-checked.directive';
 import { HeadwindRadioButtonComponent } from '../../../../projects/headwind-ui/src/components/headwind-radio-group/headwind-radio/headwind-radio-button/headwind-radio-button.component';
-import { HeadwindRadioLabelComponent } from '../../../../projects/headwind-ui/src/components/headwind-radio-group/headwind-radio/headwind-radio-label/headwind-radio-label.component';
 import { HeadwindRadioSelectedDirective } from '../../../../projects/headwind-ui/src/components/headwind-radio-group/headwind-radio/headwind-radio-button/headwind-radio-selected/headwind-radio-selected.directive';
 import { HeadwindAccordionComponent } from '../../../../projects/headwind-ui/src/components/headwind-accordion/headwind-accordion.component';
 import { HeadwindAccordionButtonComponent } from '../../../../projects/headwind-ui/src/components/headwind-accordion/headwind-accordion-button/headwind-accordion-button.component';
@@ -20,7 +18,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { HeadwindTabGroupComponent } from '../../../../projects/headwind-ui/src/components/headwind-tab-group/headwind-tab-group.component';
 import { HeadwindTabButtonGroupComponent } from '../../../../projects/headwind-ui/src/components/headwind-tab-group/headwind-tab-button-group/headwind-tab-button-group.component';
 import { HeadwindTabContentGroupComponent } from '../../../../projects/headwind-ui/src/components/headwind-tab-group/headwind-tab-content-group/headwind-tab-content-group.component';
-import { HeadwindTabButtonDirective } from '../../../../projects/headwind-ui/src/components/headwind-tab-group/headwind-tab-button-group/headwind-tab-button/headwind-tab-button.directive';
+import { HeadwindTabButtonComponent } from '../../../../projects/headwind-ui/src/components/headwind-tab-group/headwind-tab-button-group/headwind-tab-button/headwind-tab-button.component';
 import { HeadwindTabContentDirective } from '../../../../projects/headwind-ui/src/components/headwind-tab-group/headwind-tab-content-group/headwind-tab-content/headwind-tab-content.directive';
 import { HeadwindPopoverButtonDirective } from '../../../../projects/headwind-ui/src/components/headwind-popover/headwind-popover-button/headwind-popover-button.directive';
 import { HeadwindPopoverComponent } from '../../../../projects/headwind-ui/src/components/headwind-popover/headwind-popover.component';
@@ -40,12 +38,10 @@ import { RouterLink } from '@angular/router';
     ReactiveFormsModule,
     HeadwindCheckboxComponent,
     HeadwindCheckboxButtonComponent,
-    HeadwindCheckboxLabelComponent,
     HeadwindCheckboxCheckedDirective,
     HeadwindRadioGroupComponent,
     HeadwindRadioComponent,
     HeadwindRadioButtonComponent,
-    HeadwindRadioLabelComponent,
     HeadwindRadioSelectedDirective,
     HeadwindAccordionComponent,
     HeadwindAccordionButtonComponent,
@@ -53,7 +49,7 @@ import { RouterLink } from '@angular/router';
     HeadwindTabGroupComponent,
     HeadwindTabButtonGroupComponent,
     HeadwindTabContentGroupComponent,
-    HeadwindTabButtonDirective,
+    HeadwindTabButtonComponent,
     HeadwindTabContentDirective,
     HeadwindPopoverButtonDirective,
     HeadwindPopoverComponent,

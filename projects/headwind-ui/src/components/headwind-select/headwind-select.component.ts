@@ -6,7 +6,6 @@ import {
   ElementRef,
   EmbeddedViewRef,
   EventEmitter,
-  HostBinding,
   HostListener,
   Input,
   OnDestroy,
@@ -32,6 +31,10 @@ import { HeadwindOptionsComponent } from './headwind-options-template/headwind-o
   host: {
     tabindex: '0',
     class: 'headwind-select',
+    role: 'combobox',
+    ['aria-haspopup']: 'listbox',
+    ['[attr.aria-expanded]']: 'opened',
+    ['[class.headwind-opened]']: 'opened',
   },
   providers: [HeadwindClickDetector, HeadwindSelectService],
 })
@@ -104,7 +107,6 @@ export class HeadwindSelectComponent extends HeadwindControlValueAccessor implem
     this.setDisabledState(value);
   }
 
-  @HostBinding('class.headwind-opened')
   get opened(): boolean {
     return !!this._optionsViewRef;
   }

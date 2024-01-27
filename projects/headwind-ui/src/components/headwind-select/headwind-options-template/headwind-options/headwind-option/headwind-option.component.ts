@@ -11,6 +11,7 @@ import { combineLatest } from 'rxjs';
   styleUrl: './headwind-option.component.scss',
   host: {
     class: 'headwind-option',
+    role: 'option',
   },
 })
 export class HeadwindOptionComponent implements OnInit {

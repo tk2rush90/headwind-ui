@@ -9,11 +9,17 @@ import { HeadwindAccordionService } from '../service/headwind-accordion.service'
   styleUrl: './headwind-accordion-button.component.scss',
   host: {
     tabindex: '0',
+    role: 'button',
     class: 'headwind-accordion-button',
+    ['[attr.aria-expanded]']: 'opened',
   },
 })
 export class HeadwindAccordionButtonComponent {
   constructor(private readonly _headwindAccordionService: HeadwindAccordionService) {}
+
+  get opened(): boolean {
+    return this._headwindAccordionService.opened;
+  }
 
   @HostListener('click')
   onHostClick(): void {

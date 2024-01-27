@@ -22,10 +22,11 @@ import { HeadwindRadioGroupService } from '../service/headwind-radio-group.servi
   providers: [HeadwindClickDetector],
   host: {
     class: 'headwind-radio',
+    ['[class.headwind-selected]']: 'selected',
   },
 })
 export class HeadwindRadioComponent implements AfterContentInit {
-  @Input() value: any;
+  @Input({ required: true }) value: any;
 
   @ContentChild(HeadwindRadioButtonComponent, { descendants: true }) button?: HeadwindRadioButtonComponent;
 
@@ -40,12 +41,6 @@ export class HeadwindRadioComponent implements AfterContentInit {
 
   ngAfterContentInit() {
     this._headwindRadioGroupService.value$.pipe(takeUntilDestroyed(this._destroyRef)).subscribe((value) => {
-      if (this.value === value) {
-        this._setAttribute('selected', '');
-      } else {
-        this._removeAttribute('selected');
-      }
-
       this.selected = this.value === value;
 
       if (this.button) {

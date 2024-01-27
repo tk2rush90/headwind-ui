@@ -1,18 +1,24 @@
-import { DestroyRef, Directive, HostBinding, HostListener, Input, OnInit } from '@angular/core';
+import { Component, DestroyRef, HostListener, Input, OnInit } from '@angular/core';
 import { HeadwindTabGroupService } from '../../service/headwind-tab-group.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-@Directive({
-  selector: '[headwindTabButton]',
+@Component({
+  selector: 'headwind-tab-button',
   standalone: true,
+  imports: [],
+  templateUrl: './headwind-tab-button.component.html',
+  styleUrl: './headwind-tab-button.component.scss',
   host: {
+    role: 'button',
+    tabindex: '0',
     class: 'headwind-tab-button',
+    ['[class.headwind-selected]']: 'selected',
   },
 })
-export class HeadwindTabButtonDirective implements OnInit {
+export class HeadwindTabButtonComponent implements OnInit {
   @Input({ required: true }) tabKey!: any;
 
-  @HostBinding('class.headwind-selected') selected = false;
+  selected = false;
 
   constructor(
     private readonly _destroyRef: DestroyRef,

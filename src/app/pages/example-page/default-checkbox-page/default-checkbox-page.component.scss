@@ -1,0 +1,29 @@
+@tailwind components;
+
+@layer components {
+  :host {
+    @apply w-full h-full fixed flex items-center justify-center overflow-auto bg-stone-50 p-6;
+  }
+
+  .headwind-checkbox {
+    @apply flex items-center space-x-2 cursor-pointer select-none;
+
+    &:focus {
+      .headwind-checkbox-button {
+        @apply border-rose-500;
+      }
+    }
+  }
+
+  .headwind-checkbox-button {
+    @apply flex items-center justify-center border border-zinc-300 w-6 h-6 bg-white rounded transition-colors;
+
+    &.headwind-checked {
+      @apply bg-rose-500 border-rose-500;
+    }
+  }
+
+  label {
+    @apply text-sm;
+  }
+}

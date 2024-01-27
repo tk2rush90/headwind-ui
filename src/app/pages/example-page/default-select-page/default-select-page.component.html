@@ -1,5 +1,5 @@
-<headwind-select [(value)]="value">
-  <div [class.empty]="!value" class="text-sm">
+<headwind-select [(ngModel)]="value">
+  <div [attr.aria-label]="value ? value : 'Select option'" [class.empty]="!value" class="text-sm">
     {{ value || 'Select option' }}
   </div>
 
@@ -10,7 +10,8 @@
     </svg>
   </div>
 
-  <headwind-options *headwindOptionsTemplate [@fadeIn]>
+  <headwind-options (actualDirectionChange)="onActualDirectionChange($event)" *headwindOptionsTemplate [@fadeIn]
+                    [class.bottom]="actualDirection === 'bottom'" [class.top]="actualDirection === 'top'">
     @for (item of options; track item) {
       <headwind-option [value]="item">
         {{ item }}
