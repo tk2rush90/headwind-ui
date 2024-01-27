@@ -6,6 +6,7 @@ import {
   ElementRef,
   EmbeddedViewRef,
   EventEmitter,
+  HostBinding,
   HostListener,
   Input,
   OnDestroy,
@@ -103,6 +104,7 @@ export class HeadwindSelectComponent extends HeadwindControlValueAccessor implem
     this.setDisabledState(value);
   }
 
+  @HostBinding('class.headwind-opened')
   get opened(): boolean {
     return !!this._optionsViewRef;
   }

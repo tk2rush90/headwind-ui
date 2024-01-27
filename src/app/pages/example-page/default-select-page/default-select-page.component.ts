@@ -3,6 +3,7 @@ import { HeadwindOptionComponent } from '../../../../../projects/headwind-ui/src
 import { HeadwindOptionsComponent } from '../../../../../projects/headwind-ui/src/components/headwind-select/headwind-options-template/headwind-options/headwind-options.component';
 import { HeadwindSelectComponent } from '../../../../../projects/headwind-ui/src/components/headwind-select/headwind-select.component';
 import { HeadwindOptionsTemplateDirective } from '../../../../../projects/headwind-ui/src/components/headwind-select/headwind-options-template/headwind-options-template.directive';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-default-select-page',
@@ -15,9 +16,29 @@ import { HeadwindOptionsTemplateDirective } from '../../../../../projects/headwi
   ],
   templateUrl: './default-select-page.component.html',
   styleUrl: './default-select-page.component.scss',
+  animations: [
+    trigger('fadeIn', [
+      state(
+        'void',
+        style({
+          opacity: 0,
+        }),
+      ),
+      transition(
+        'void => *',
+        animate(
+          '.1s',
+          style({
+            opacity: 1,
+          }),
+        ),
+      ),
+      transition('* => void', animate('.1s')),
+    ]),
+  ],
 })
 export class DefaultSelectPageComponent {
-  value = 'Tori Day';
+  value = '';
 
   options = [
     'Tori Day',

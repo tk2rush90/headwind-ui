@@ -1,7 +1,5 @@
 import { ApplicationRef, EmbeddedViewRef, Injectable, TemplateRef, ViewContainerRef } from '@angular/core';
 import { HeadwindOverlayOutletComponent } from '../components/headwind-overlay-outlet/headwind-overlay-outlet.component';
-import { BehaviorSubject } from 'rxjs';
-import { EnableDisable } from '../types/enable-disable';
 
 @Injectable({
   providedIn: 'root',
@@ -14,9 +12,6 @@ export class HeadwindOverlayService {
    * Once viewContainerRef is created, that is cached to this property to prevent creating multiple viewContainerRefs.
    */
   private _cachedViewContainerRef?: ViewContainerRef;
-
-  /** Status to close opened overlay by Escape key. It's disabled by default. */
-  private _escapeClosing$ = new BehaviorSubject<EnableDisable>('disable');
 
   constructor(private readonly _applicationRef: ApplicationRef) {}
 
@@ -31,14 +26,6 @@ export class HeadwindOverlayService {
     }
 
     return this._cachedViewContainerRef;
-  }
-
-  get escapeClosing(): EnableDisable {
-    return this._escapeClosing$.value;
-  }
-
-  set escapeClosing(value: EnableDisable) {
-    this._escapeClosing$.next(value);
   }
 
   /**

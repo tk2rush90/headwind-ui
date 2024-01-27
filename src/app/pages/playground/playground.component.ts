@@ -123,9 +123,7 @@ export class PlaygroundComponent {
     },
   ];
 
-  constructor(private readonly _headwindOverlayService: HeadwindOverlayService) {
-    this._headwindOverlayService.escapeClosing = 'enable';
-  }
+  constructor(private readonly _headwindOverlayService: HeadwindOverlayService) {}
 
   onValueChange(value: any): void {
     this.selectValue = value;

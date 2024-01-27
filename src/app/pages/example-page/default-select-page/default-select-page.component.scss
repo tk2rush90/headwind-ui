@@ -2,23 +2,42 @@
 
 @layer components {
   :host {
-    @apply w-full h-full fixed flex items-center justify-center bg-amber-500 overflow-auto;
+    @apply w-full h-full fixed flex items-center justify-center overflow-auto bg-stone-50;
+  }
+
+  .headwind-select {
+    @apply flex items-center justify-between bg-white px-2 h-8 rounded-md space-x-2 w-[200px] cursor-pointer select-none border border-zinc-300 transition-colors;
+
+    &.headwind-opened {
+      @apply border-rose-500;
+    }
+
+    &:focus {
+      @apply border-rose-500;
+    }
+  }
+
+  .empty {
+    @apply text-zinc-400;
   }
 
   .headwind-options {
-    @apply bg-white translate-y-1 rounded-md max-h-[150px] overflow-auto p-1;
-  }
+    @apply bg-white translate-y-1 rounded-md max-h-[150px] overflow-auto p-1 border border-zinc-300;
 
-  .headwind-select,
-  .headwind-options {
-    @apply shadow-xl;
+    &::-webkit-scrollbar-track {
+      @apply m-1.5;
+    }
   }
 
   .headwind-option {
-    @apply hover:bg-amber-200 cursor-pointer select-none;
+    @apply hover:bg-rose-200 cursor-pointer select-none block text-sm py-1 px-2 rounded;
 
     &.headwind-focused {
-      @apply bg-amber-200;
+      @apply bg-rose-200;
+    }
+
+    &.headwind-selected {
+      @apply text-rose-500;
     }
   }
 }

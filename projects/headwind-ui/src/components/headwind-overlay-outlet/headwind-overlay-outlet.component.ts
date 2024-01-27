@@ -19,8 +19,6 @@ export class HeadwindOverlayOutletComponent {
 
   @HostListener('window:keydown.escape')
   onWindowEscapeKeydown(): void {
-    if (this._headwindOverlayService.escapeClosing === 'enable') {
-      this._headwindOverlayService.closeLatest();
-    }
+    this._headwindOverlayService.closeLatest();
   }
 }
