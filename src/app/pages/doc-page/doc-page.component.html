@@ -1,0 +1,20 @@
+<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-zinc-200">
+  <div class="page-container px-8 h-12 flex items-center">
+    <a [routerLink]="['/']">
+      <app-logo class="block scale-75 origin-left"></app-logo>
+    </a>
+  </div>
+</header>
+
+<div class="page-container px-8 flex items-stretch">
+  <aside class="fixed top-0 bottom-0 left-[calc(50%-640px)] w-[300px] border-r border-zinc-200 max-h-screen pt-24 pb-12">
+    <nav>
+
+    </nav>
+  </aside>
+
+  <div class="pl-[300px] pt-24 grow">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

@@ -100,8 +100,6 @@
   </headwind-options>
 </headwind-select>
 
-<!-- todo context menu / toggle button -->
-
 <headwind-checkbox [(ngModel)]="checkboxValue" class="cursor-pointer select-none flex items-center space-x-1">
   <headwind-checkbox-button class="border rounded border-zinc-300 aspect-square w-5 flex items-center justify-center">
     <svg
@@ -223,3 +221,23 @@
 <a [routerLink]="['/']" class="block">
   home
 </a>
+
+<headwind-switch class="flex items-center space-x-2 cursor-pointer select-none">
+  <headwind-switch-track class="block rounded-full w-10 h-6 bg-stone-200 relative transition-colors">
+    <headwind-switch-thumb class="block rounded-full w-4 h-4 bg-white absolute top-1 left-1 transition-all"></headwind-switch-thumb>
+  </headwind-switch-track>
+
+  <label class="text-sm">
+    Label...
+  </label>
+</headwind-switch>
+
+<headwind-switch disabled class="flex items-center space-x-2 cursor-pointer select-none">
+  <headwind-switch-track class="block rounded-full w-10 h-6 bg-stone-200 relative transition-colors">
+    <headwind-switch-thumb class="block rounded-full w-4 h-4 bg-white absolute top-1 left-1 transition-all"></headwind-switch-thumb>
+  </headwind-switch-track>
+
+  <label class="text-sm">
+    Label...
+  </label>
+</headwind-switch>

@@ -52,4 +52,26 @@
   .radio-icon {
     @apply w-2 aspect-square bg-blue-500 rounded-full;
   }
+
+  .headwind-switch {
+    &.headwind-checked {
+      .headwind-switch-track {
+        @apply bg-rose-500;
+      }
+
+      .headwind-switch-thumb {
+        @apply left-5;
+      }
+    }
+
+    &[disabled] {
+      .headwind-switch-track {
+        @apply bg-stone-100;
+      }
+
+      .headwind-switch-thumb {
+        @apply bg-stone-300;
+      }
+    }
+  }
 }

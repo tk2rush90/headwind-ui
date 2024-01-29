@@ -13,16 +13,20 @@
     @apply outline-0;
   }
 
-  .live-iframe {
-    @apply block w-full aspect-video rounded-2xl border border-zinc-300;
-  }
-
   ::-webkit-scrollbar-thumb {
     @apply bg-rose-500;
   }
 
   .headwind-tab-button-group {
     @apply flex items-stretch h-12;
+  }
+
+  .flat-button {
+    @apply text-base font-semibold px-3 h-10 bg-rose-500 text-white hover:bg-rose-600 active:bg-rose-700 rounded-md;
+  }
+
+  .page-container {
+    @apply mx-auto max-w-[1280px];
   }
 }
 

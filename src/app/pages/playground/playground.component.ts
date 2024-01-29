@@ -26,6 +26,9 @@ import { HeadwindPopoverOverlayComponent } from '../../../../projects/headwind-u
 import { HeadwindOptionsTemplateDirective } from '../../../../projects/headwind-ui/src/components/headwind-select/headwind-options-template/headwind-options-template.directive';
 import { HeadwindPopoverOverlayTemplateDirective } from '../../../../projects/headwind-ui/src/components/headwind-popover/headwind-popover-overlay-template/headwind-popover-overlay-template.directive';
 import { RouterLink } from '@angular/router';
+import { HeadwindSwitchComponent } from '../../../../projects/headwind-ui/src/components/headwind-switch/headwind-switch.component';
+import { HeadwindSwitchTrackComponent } from '../../../../projects/headwind-ui/src/components/headwind-switch/headwind-switch-track/headwind-switch-track.component';
+import { HeadwindSwitchThumbComponent } from '../../../../projects/headwind-ui/src/components/headwind-switch/headwind-switch-track/headwind-switch-thumb/headwind-switch-thumb.component';
 
 @Component({
   selector: 'app-playground',
@@ -57,6 +60,9 @@ import { RouterLink } from '@angular/router';
     HeadwindOptionsTemplateDirective,
     HeadwindPopoverOverlayTemplateDirective,
     RouterLink,
+    HeadwindSwitchComponent,
+    HeadwindSwitchTrackComponent,
+    HeadwindSwitchThumbComponent,
   ],
   templateUrl: './playground.component.html',
   styleUrl: './playground.component.scss',

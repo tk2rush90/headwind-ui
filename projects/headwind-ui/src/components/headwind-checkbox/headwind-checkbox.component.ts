@@ -16,6 +16,7 @@ import { HeadwindCheckboxService } from './service/headwind-checkbox.service';
     class: 'headwind-checkbox',
     role: 'checkbox',
     ['[attr.aria-checked]']: 'checked',
+    ['[class.headwind-checked]']: 'checked',
   },
 })
 export class HeadwindCheckboxComponent extends HeadwindControlValueAccessor {

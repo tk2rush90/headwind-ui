@@ -1,0 +1,8 @@
+<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[80px] h-6 rounded-md bg-rose-500"></div>
+
+@if (opened) {
+  <div [@fadeIn]="'show'" class="absolute w-full h-full bg-black/[.3]"></div>
+  <div [@fadeInGrowUp]="'show'" class="w-full h-full flex items-center justify-center">
+    <div class="origin-center w-[200px] h-20 rounded-md bg-white"></div>
+  </div>
+}

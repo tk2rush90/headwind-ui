@@ -16,7 +16,7 @@
   }
 
   .headwind-checkbox-button {
-    @apply flex items-center justify-center border border-zinc-300 w-6 h-6 bg-white rounded transition-colors;
+    @apply flex items-center justify-center border border-zinc-300 w-5 h-5 bg-white rounded transition-colors;
 
     &.headwind-checked {
       @apply bg-rose-500 border-rose-500;

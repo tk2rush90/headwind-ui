@@ -1,0 +1,47 @@
+@tailwind components;
+
+@layer components {
+  .bar {
+    &.step-1 {
+      &:nth-child(1) {
+        @apply w-[10%];
+      }
+
+      &:nth-child(2) {
+        @apply w-[60%];
+      }
+
+      &:nth-child(3) {
+        @apply w-[40%];
+      }
+    }
+
+    &.step-2 {
+      &:nth-child(1) {
+        @apply w-[40%];
+      }
+
+      &:nth-child(2) {
+        @apply w-[20%];
+      }
+
+      &:nth-child(3) {
+        @apply w-[80%];
+      }
+    }
+
+    &.step-3 {
+      &:nth-child(1) {
+        @apply w-[80%];
+      }
+
+      &:nth-child(2) {
+        @apply w-[90%];
+      }
+
+      &:nth-child(3) {
+        @apply w-[20%];
+      }
+    }
+  }
+}

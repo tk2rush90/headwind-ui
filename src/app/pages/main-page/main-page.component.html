@@ -1,0 +1,79 @@
+<header class="w-full p-8 flex items-center justify-between">
+  <div class="flex items-center space-x-2">
+    <app-logo class="block h-8"></app-logo>
+
+    <div class="text-xs text-white bg-stone-500 px-1.5 py-0.5 rounded">
+      v17.0.0
+    </div>
+  </div>
+
+  <app-github-icon class="block h-6"></app-github-icon>
+</header>
+
+<main class="page-container px-8">
+  <div class="flex flex-col items-center mt-32 space-y-6">
+    <app-logo-icon class="block h-24"></app-logo-icon>
+
+    <div class="text-4xl text-center">
+      Styleless Angular components<br/>
+      to integrate with Tailwind CSS
+    </div>
+
+    <a [routerLink]="['/doc']">
+      <button class="flat-button">
+        Getting Started
+      </button>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-3 gap-8 mt-20">
+    <a [routerLink]="['/doc/accordion']">
+      <app-preview-item name="Accordion">
+        <app-accordion-preview></app-accordion-preview>
+      </app-preview-item>
+    </a>
+
+    <a [routerLink]="['/doc/checkbox']">
+      <app-preview-item name="Checkbox">
+        <app-checkbox-preview></app-checkbox-preview>
+      </app-preview-item>
+    </a>
+
+    <a [routerLink]="['/doc/overlay']">
+      <app-preview-item name="Overlay">
+        <app-overlay-preview></app-overlay-preview>
+      </app-preview-item>
+    </a>
+
+    <a [routerLink]="['/doc/popover']">
+      <app-preview-item name="Popover">
+        <app-popover-preview></app-popover-preview>
+      </app-preview-item>
+    </a>
+
+    <a [routerLink]="['/doc/radio-group']">
+      <app-preview-item name="Radio Group">
+        <app-radio-group-preview></app-radio-group-preview>
+      </app-preview-item>
+    </a>
+
+    <a [routerLink]="['/doc/select']">
+      <app-preview-item name="Select">
+        <app-select-preview></app-select-preview>
+      </app-preview-item>
+    </a>
+
+    <a [routerLink]="['/doc/switch']">
+      <app-preview-item name="Switch">
+        <app-switch-preview></app-switch-preview>
+      </app-preview-item>
+    </a>
+
+    <a [routerLink]="['/doc/tab-group']">
+      <app-preview-item name="Tab Group">
+        <app-tab-group-preview></app-tab-group-preview>
+      </app-preview-item>
+    </a>
+  </div>
+</main>
+
