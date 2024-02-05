@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MarkdownComponent } from 'ngx-markdown';
 import { BasicOverlayExampleComponent } from './basic-overlay-example/basic-overlay-example.component';
 import { DocumentationService } from '../../../../services/documentation.service';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-overlay-page',
@@ -14,7 +15,18 @@ import { DocumentationService } from '../../../../services/documentation.service
   },
 })
 export class DocOverlayPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Overlay',
+      description:
+        'Creates a transparent layer that appears layered on top of other elements. It can be used when implementing screens such as modals, pop-ups, dialog boxes, tooltips, etc.',
+      keywords: ['Angular', 'Tailwind', 'Overlay'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/overlay',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Overlay',

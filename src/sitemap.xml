@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://ng-headwind-ui.github.io/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/press-kit/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/versioning/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/getting-started/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/accordion/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/checkbox/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/overlay/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/popover/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/radio-group/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/select/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/switch/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ng-headwind-ui.github.io/doc/v17.0.0/tab-group/</loc>
+  <lastmod>2024-02-05T12:25:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

@@ -9,6 +9,7 @@ import { CheckboxMethodsExampleComponent } from './checkbox-methods-example/chec
 import { CheckboxModelBindingExampleComponent } from './checkbox-model-binding-example/checkbox-model-binding-example.component';
 import { CheckboxDisabledExampleComponent } from './checkbox-disabled-example/checkbox-disabled-example.component';
 import { CheckboxAnimationExampleComponent } from './checkbox-animation-example/checkbox-animation-example.component';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-checkbox-page',
@@ -31,7 +32,17 @@ import { CheckboxAnimationExampleComponent } from './checkbox-animation-example/
   },
 })
 export class DocCheckboxPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Checkbox',
+      description: 'Component that toggles boolean state.',
+      keywords: ['Angular', 'Tailwind', 'Checkbox'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/checkbox',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Checkbox',

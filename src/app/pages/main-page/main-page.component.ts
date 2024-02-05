@@ -14,6 +14,7 @@ import { PreviewItemComponent } from './preview-item/preview-item.component';
 import { RouterLink } from '@angular/router';
 import { VersionChipComponent } from '../../common/version-chip/version-chip.component';
 import { FooterComponent } from '../../common/footer/footer.component';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-main-page',
@@ -38,4 +39,8 @@ import { FooterComponent } from '../../common/footer/footer.component';
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
-export class MainPageComponent {}
+export class MainPageComponent {
+  constructor(private readonly _seoService: SeoService) {
+    this._seoService.update(this._seoService.defaultOptions);
+  }
+}

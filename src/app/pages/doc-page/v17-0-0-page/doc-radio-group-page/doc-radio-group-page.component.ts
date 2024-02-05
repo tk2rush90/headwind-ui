@@ -8,6 +8,7 @@ import { RadioGroupValueExampleComponent } from './radio-group-value-example/rad
 import { RadioGroupModelBindingExampleComponent } from './radio-group-model-binding-example/radio-group-model-binding-example.component';
 import { RadioGroupDisabledExampleComponent } from './radio-group-disabled-example/radio-group-disabled-example.component';
 import { RadioGroupAnimationExampleComponent } from './radio-group-animation-example/radio-group-animation-example.component';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-radio-group-page',
@@ -29,7 +30,18 @@ import { RadioGroupAnimationExampleComponent } from './radio-group-animation-exa
   },
 })
 export class DocRadioGroupPageComponent {
-  constructor(private _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Radio Group',
+      description:
+        'A component that allows the user to select one of several choices. Multiple radio buttons grouped together.',
+      keywords: ['Angular', 'Tailwind', 'Radio Group'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/radio-group',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Radio Group',

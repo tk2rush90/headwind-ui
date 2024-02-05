@@ -6,6 +6,7 @@ import { TabGroupTabKeyExampleComponent } from './tab-group-tab-key-example/tab-
 import { TabGroupClassesExampleComponent } from './tab-group-classes-example/tab-group-classes-example.component';
 import { TabGroupSelectedClassExampleComponent } from './tab-group-selected-class-example/tab-group-selected-class-example.component';
 import { TabGroupAnimationExampleComponent } from './tab-group-animation-example/tab-group-animation-example.component';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-tab-group-page',
@@ -22,7 +23,18 @@ import { TabGroupAnimationExampleComponent } from './tab-group-animation-example
   styleUrl: './doc-tab-group-page.component.scss',
 })
 export class DocTabGroupPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Tab Group',
+      description:
+        'A component that consists of several tab buttons and content, and allows tabs to be activated according to the tab key.',
+      keywords: ['Angular', 'Tailwind', 'Tab Group'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/tab-group',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Tab Group',

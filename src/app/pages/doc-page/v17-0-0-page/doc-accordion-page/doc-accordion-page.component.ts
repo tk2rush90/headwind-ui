@@ -8,6 +8,7 @@ import { AccordionOpenedStateExampleComponent } from './accordion-opened-state-e
 import { DocumentationService } from '../../../../services/documentation.service';
 import { AccordionMethodsExampleComponent } from './accordion-methods-example/accordion-methods-example.component';
 import { AccordionAnimationExampleComponent } from './accordion-animation-example/accordion-animation-example.component';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-accordion-page',
@@ -29,7 +30,17 @@ import { AccordionAnimationExampleComponent } from './accordion-animation-exampl
   },
 })
 export class DocAccordionPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Accordion',
+      description: 'This is a component that can hide or show content using a button.',
+      keywords: ['Angular', 'Tailwind', 'Accordion'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/accordion',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Accordion',

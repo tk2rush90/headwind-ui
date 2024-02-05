@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MarkdownComponent } from 'ngx-markdown';
 import { DocHeadingNavigatorComponent } from '../../doc-heading-navigator/doc-heading-navigator.component';
 import { DocumentationService } from '../../../../services/documentation.service';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-getting-started-page',
@@ -15,7 +16,17 @@ import { DocumentationService } from '../../../../services/documentation.service
   },
 })
 export class DocGettingStartedPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Getting Started',
+      description: 'Getting started with Headwind UI',
+      keywords: ['Angular', 'Tailwind'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/getting-started',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Getting Started',

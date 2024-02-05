@@ -9,6 +9,7 @@ import { PopoverActualChangeExampleComponent } from './popover-actual-change-exa
 import { PopoverMethodsExampleComponent } from './popover-methods-example/popover-methods-example.component';
 import { PopoverAnimationExampleComponent } from './popover-animation-example/popover-animation-example.component';
 import { PopoverClassesExampleComponent } from './popover-classes-example/popover-classes-example.component';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-popover-page',
@@ -31,7 +32,18 @@ import { PopoverClassesExampleComponent } from './popover-classes-example/popove
   },
 })
 export class DocPopoverPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Popover',
+      description:
+        'A small information box that appears when user clicks an element and is used to provide additional content or interact with the user.',
+      keywords: ['Angular', 'Tailwind', 'Popover'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/popover',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Popover',
@@ -126,7 +138,7 @@ export class DocPopoverPageComponent {
 
 const section1_0 = `# Popover
 
-A small information box that appears when you click or hover over an element and is used to provide additional content or interact with the user.`;
+A small information box that appears when user clicks an element and is used to provide additional content or interact with the user.`;
 
 const section1_1 = `\`\`\`typescript
 import { Component } from '@angular/core';

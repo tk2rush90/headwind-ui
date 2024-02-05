@@ -10,6 +10,7 @@ import { SelectModelBindingExampleComponent } from './select-model-binding-examp
 import { SelectDisabledStateExampleComponent } from './select-disabled-state-example/select-disabled-state-example.component';
 import { SelectMultipleExampleComponent } from './select-multiple-example/select-multiple-example.component';
 import { SelectAnimationExampleComponent } from './select-animation-example/select-animation-example.component';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-select-page',
@@ -33,7 +34,18 @@ import { SelectAnimationExampleComponent } from './select-animation-example/sele
   },
 })
 export class DocSelectPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Select',
+      description:
+        'A component that allows the user to select one item from a list of options that can be opened and closed.',
+      keywords: ['Angular', 'Tailwind', 'Select'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/select',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Select',

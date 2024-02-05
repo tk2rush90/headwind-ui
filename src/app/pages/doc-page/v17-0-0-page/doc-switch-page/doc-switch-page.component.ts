@@ -8,6 +8,7 @@ import { SwitchCheckedStateExampleComponent } from './switch-checked-state-examp
 import { SwitchMethodsExampleComponent } from './switch-methods-example/switch-methods-example.component';
 import { SwitchModelBindingExampleComponent } from './switch-model-binding-example/switch-model-binding-example.component';
 import { SwitchDisabledStateExampleComponent } from './switch-disabled-state-example/switch-disabled-state-example.component';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-doc-switch-page',
@@ -26,7 +27,17 @@ import { SwitchDisabledStateExampleComponent } from './switch-disabled-state-exa
   styleUrl: './doc-switch-page.component.scss',
 })
 export class DocSwitchPageComponent {
-  constructor(private readonly _documentationService: DocumentationService) {
+  constructor(
+    private readonly _seoService: SeoService,
+    private readonly _documentationService: DocumentationService,
+  ) {
+    this._seoService.update({
+      title: 'Headwind UI - Switch',
+      description: 'Components that control toggleable settings such as on/off, enabled/disabled, visible/hidden, etc.',
+      keywords: ['Angular', 'Tailwind', 'Switch'],
+      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/switch',
+    });
+
     this._documentationService.headingNavigations = [
       {
         label: 'Switch',
