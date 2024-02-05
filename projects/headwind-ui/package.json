@@ -21,7 +21,8 @@
     "Tailwind",
     "Headless"
   ],
-  "repository": "https://github.com/favian-dev/favian-simplor",
+  "repository": "https://github.com/tk2rush90/headwind-ui",
+  "homepage": "https://ng-headwind-ui.github.io",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

@@ -780,7 +780,7 @@ A group component containing multiple tab contents.
 
 ## HeadwindTabContentDirective
 
-A directive for the template that wraps the content elements.
+A directive for the template that wraps the content elements.
 ### Selector
 
 \`[headwindTabContent]\`

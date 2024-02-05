@@ -336,7 +336,7 @@ export class SelectClassesExampleComponent {
 
 const section3_0 = `## Focused Class
 
-When \`<headwind-options-overlay>\` is opened, the focus target is placed on the overlay. Each \`<headwind-option>\` uses the internal property of the overlay component to give the effect of being focused. When \`<headwind-option>\` is brought to the focused state by the overlay component, the \`.headwind-focused\` class is added.`;
+Each \`<headwind-option>\` uses the internal property of the overlay component to give the effect of being focused. When \`<headwind-option>\` is brought to the focused state by the overlay component, the \`.headwind-focused\` class is added.`;
 
 const section3_1 = `\`\`\`typescript
 import { Component } from '@angular/core';
@@ -1049,7 +1049,7 @@ A component that toggles \`<headwind-options-overlay>\` and reflects the selecte
 | \`close()\` | Select the next option. If it is already closed, it is ignored. |
 ## HeadwindOptionsOverlayDirective
 
-A directive for the template that wraps \`<headwind-popover-overlay>\`.
+A directive for the template that wraps \`<headwind-options-overlay>\`.
 ### Selector
 
 \`ng-template[headwindOptionsOverlay]\`
