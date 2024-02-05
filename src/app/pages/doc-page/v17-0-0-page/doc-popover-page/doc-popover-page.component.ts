@@ -41,7 +41,7 @@ export class DocPopoverPageComponent {
       description:
         'A small information box that appears when user clicks an element and is used to provide additional content or interact with the user.',
       keywords: ['Angular', 'Tailwind', 'Popover'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/popover',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/popover',
     });
 
     this._documentationService.headingNavigations = [

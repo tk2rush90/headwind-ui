@@ -35,7 +35,7 @@ export class DocSwitchPageComponent {
       title: 'Headwind UI - Switch',
       description: 'Components that control toggleable settings such as on/off, enabled/disabled, visible/hidden, etc.',
       keywords: ['Angular', 'Tailwind', 'Switch'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/switch',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/switch',
     });
 
     this._documentationService.headingNavigations = [

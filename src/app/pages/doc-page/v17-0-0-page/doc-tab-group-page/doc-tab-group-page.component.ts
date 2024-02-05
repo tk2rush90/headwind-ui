@@ -32,7 +32,7 @@ export class DocTabGroupPageComponent {
       description:
         'A component that consists of several tab buttons and content, and allows tabs to be activated according to the tab key.',
       keywords: ['Angular', 'Tailwind', 'Tab Group'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/tab-group',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/tab-group',
     });
 
     this._documentationService.headingNavigations = [

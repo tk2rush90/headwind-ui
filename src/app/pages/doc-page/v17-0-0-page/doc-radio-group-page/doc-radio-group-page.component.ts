@@ -39,7 +39,7 @@ export class DocRadioGroupPageComponent {
       description:
         'A component that allows the user to select one of several choices. Multiple radio buttons grouped together.',
       keywords: ['Angular', 'Tailwind', 'Radio Group'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/radio-group',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/radio-group',
     });
 
     this._documentationService.headingNavigations = [

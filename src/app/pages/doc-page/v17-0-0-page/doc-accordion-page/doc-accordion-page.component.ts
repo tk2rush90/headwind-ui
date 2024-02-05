@@ -38,7 +38,7 @@ export class DocAccordionPageComponent {
       title: 'Headwind UI - Accordion',
       description: 'This is a component that can hide or show content using a button.',
       keywords: ['Angular', 'Tailwind', 'Accordion'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/accordion',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/accordion',
     });
 
     this._documentationService.headingNavigations = [

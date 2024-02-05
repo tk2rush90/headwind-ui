@@ -24,7 +24,7 @@ export class DocOverlayPageComponent {
       description:
         'Creates a transparent layer that appears layered on top of other elements. It can be used when implementing screens such as modals, pop-ups, dialog boxes, tooltips, etc.',
       keywords: ['Angular', 'Tailwind', 'Overlay'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/overlay',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/overlay',
     });
 
     this._documentationService.headingNavigations = [

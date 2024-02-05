@@ -24,7 +24,7 @@ export class DocGettingStartedPageComponent {
       title: 'Headwind UI - Getting Started',
       description: 'Getting started with Headwind UI',
       keywords: ['Angular', 'Tailwind'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/getting-started',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/getting-started',
     });
 
     this._documentationService.headingNavigations = [

@@ -43,7 +43,7 @@ export class DocSelectPageComponent {
       description:
         'A component that allows the user to select one item from a list of options that can be opened and closed.',
       keywords: ['Angular', 'Tailwind', 'Select'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/select',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/select',
     });
 
     this._documentationService.headingNavigations = [

@@ -11,6 +11,6 @@ import { DocumentationService } from '../../../services/documentation.service';
 })
 export class V1700PageComponent {
   constructor(private readonly _documentationService: DocumentationService) {
-    this._documentationService.version = 'v17.0.0';
+    this._documentationService.version = 'v17';
   }
 }

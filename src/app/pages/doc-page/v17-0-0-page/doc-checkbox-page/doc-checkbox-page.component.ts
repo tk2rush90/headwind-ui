@@ -40,7 +40,7 @@ export class DocCheckboxPageComponent {
       title: 'Headwind UI - Checkbox',
       description: 'Component that toggles boolean state.',
       keywords: ['Angular', 'Tailwind', 'Checkbox'],
-      url: 'https://ng-headwind-ui.github.io/doc/v17.0.0/checkbox',
+      url: 'https://ng-headwind-ui.github.io/doc/v17/checkbox',
     });
 
     this._documentationService.headingNavigations = [
