@@ -1,6 +1,6 @@
 {
-  "name": "headwind-ui",
-  "version": "0.0.1",
+  "name": "@favian/headwind-ui",
+  "version": "17.0.0",
   "peerDependencies": {
     "@angular/common": "^17.0.0",
     "@angular/core": "^17.0.0"
@@ -8,5 +8,22 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "author": {
+    "name": "tk2rush90",
+    "email": "tk2rush90@gmail.com"
+  },
+  "description": "Styleless Angular components to integrate with Tailwind CSS",
+  "keywords": [
+    "Angular",
+    "Favian",
+    "UI",
+    "Tailwind",
+    "Headless"
+  ],
+  "repository": "https://github.com/favian-dev/favian-simplor",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -1,0 +1,23 @@
+<div class="font-bold text-sm">
+  On this page
+</div>
+
+<nav class="text-sm text-zinc-400 space-y-2">
+  @for (navigation of navigations; track navigation.label) {
+    <ng-container [ngTemplateOutlet]="navigationItem" [ngTemplateOutletContext]="{$implicit: navigation}"></ng-container>
+  }
+</nav>
+
+<ng-template #navigationItem let-navigation>
+  <a [routerLink]="[]" [fragment]="navigation.fragment" class="block hover:text-zinc-800 break-all">
+    {{ navigation.label }}
+  </a>
+
+  @if (navigation.children) {
+    <div class="pl-4 space-y-2">
+      @for (child of navigation.children; track child.label) {
+        <ng-container [ngTemplateOutlet]="navigationItem" [ngTemplateOutletContext]="{$implicit: child}"></ng-container>
+      }
+    </div>
+  }
+</ng-template>

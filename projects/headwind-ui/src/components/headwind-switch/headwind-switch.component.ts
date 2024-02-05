@@ -15,6 +15,7 @@ import { HeadwindControlValueAccessor } from '../../abstracts/headwind-control-v
     ['[attr.aria-checked]']: 'checked',
     ['[class.headwind-checked]']: 'checked',
   },
+  providers: [HeadwindSwitchService],
 })
 export class HeadwindSwitchComponent extends HeadwindControlValueAccessor {
   @Output() checkedChange = new EventEmitter<boolean>();

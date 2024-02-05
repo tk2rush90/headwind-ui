@@ -12,6 +12,7 @@ import { HeadwindControlValueAccessor } from '../../abstracts/headwind-control-v
 import { HeadwindRadioComponent } from './headwind-radio/headwind-radio.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { HeadwindRadioGroupService } from './service/headwind-radio-group.service';
+import { HeadwindQueryListService } from '../../services/headwind-query-list.service';
 
 @Component({
   selector: 'headwind-radio-group',
@@ -30,11 +31,16 @@ export class HeadwindRadioGroupComponent extends HeadwindControlValueAccessor {
 
   @ContentChildren(HeadwindRadioComponent, { descendants: true }) radioList?: QueryList<HeadwindRadioComponent>;
 
-  constructor(private readonly _headwindRadioGroupService: HeadwindRadioGroupService) {
+  constructor(
+    private readonly _headwindQueryListService: HeadwindQueryListService,
+    private readonly _headwindRadioGroupService: HeadwindRadioGroupService,
+  ) {
     super();
 
     this._headwindRadioGroupService.selectOption.pipe(takeUntilDestroyed()).subscribe((value) => {
-      this.updateValue(value);
+      if (!this.disabled) {
+        this.updateValue(value);
+      }
     });
   }
 
@@ -130,16 +136,6 @@ export class HeadwindRadioGroupComponent extends HeadwindControlValueAccessor {
   }
 
   private _findIndexOfSelectedRadio(): number {
-    let searchedIndex = -1;
-
-    this.radioList?.some((radio, index) => {
-      if (radio.selected) {
-        searchedIndex = index;
-      }
-
-      return radio.selected;
-    });
-
-    return searchedIndex;
+    return this._headwindQueryListService.findIndex(this.radioList, (radio) => radio.selected);
   }
 }

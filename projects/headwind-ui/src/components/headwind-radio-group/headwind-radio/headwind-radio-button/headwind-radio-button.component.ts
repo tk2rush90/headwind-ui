@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChild, EmbeddedViewRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, EmbeddedViewRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { HeadwindRadioSelectedDirective } from './headwind-radio-selected/headwind-radio-selected.directive';
 
 @Component({
@@ -11,9 +11,10 @@ import { HeadwindRadioSelectedDirective } from './headwind-radio-selected/headwi
     class: 'headwind-radio-button',
   },
 })
-export class HeadwindRadioButtonComponent implements AfterContentInit {
+export class HeadwindRadioButtonComponent implements AfterViewInit {
   @ViewChild('radioSelectedContainer', { read: ViewContainerRef }) radioSelectedContainer?: ViewContainerRef;
   @ContentChild(HeadwindRadioSelectedDirective, { descendants: true }) radioSelected?: HeadwindRadioSelectedDirective;
+
   private _selectedEmbeddedViewRef?: EmbeddedViewRef<any>;
 
   /** Internal selected status to show and hide selected icon */
@@ -28,7 +29,7 @@ export class HeadwindRadioButtonComponent implements AfterContentInit {
     this._renderRadioSelected();
   }
 
-  ngAfterContentInit() {
+  ngAfterViewInit() {
     this._renderRadioSelected();
   }
 

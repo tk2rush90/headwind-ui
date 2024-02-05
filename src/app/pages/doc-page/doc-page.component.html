@@ -1,20 +1,51 @@
-<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-zinc-200">
-  <div class="page-container px-8 h-12 flex items-center">
-    <a [routerLink]="['/']">
-      <app-logo class="block scale-75 origin-left"></app-logo>
-    </a>
+<header #header class="sticky top-0 left-0 right-0 bg-white z-50 border-b border-zinc-200">
+  <div class="page-container h-12 flex items-center gap-4">
+    <button (click)="openMobileNavigation(mobileNavigation)" type="button" class="flex items-center justify-center md:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+           class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+      </svg>
+    </button>
+
+    <div class="flex items-center gap-2">
+      <a [routerLink]="['/']">
+        <app-logo class="block h-6 origin-left"></app-logo>
+      </a>
+
+      <app-version-chip>
+        {{ version }}
+      </app-version-chip>
+    </div>
+
+    <ng-template #mobileNavigation>
+      <div [@mobileNavigation] class="bg-white w-full h-full p-8 shadow-2xl flex flex-col items-stretch gap-8">
+        <div class="flex items-center justify-between flex-[0_0_auto]">
+          <app-logo class="block h-8"></app-logo>
+
+          <button (click)="closeMobileNavigation()" type="button" class="flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <app-doc-navigation (navigationClick)="closeMobileNavigation()" class="flex-[1_1_0] overflow-auto"></app-doc-navigation>
+      </div>
+    </ng-template>
   </div>
 </header>
 
-<div class="page-container px-8 flex items-stretch">
-  <aside class="fixed top-0 bottom-0 left-[calc(50%-640px)] w-[300px] border-r border-zinc-200 max-h-screen pt-24 pb-12">
-    <nav>
-
-    </nav>
+<div class="page-container flex items-stretch flex-[1_1_auto]">
+  <aside class="hidden md:block sticky top-12 bottom-0 w-[240px] py-8 border-r border-zinc-200 max-h-[calc(100vh-48px)] bg-white overflow-auto">
+    <app-doc-navigation></app-doc-navigation>
   </aside>
 
-  <div class="pl-[300px] pt-24 grow">
+  <div class="w-0 md:p-8 px-0 py-8 grow shrink basis-0">
     <router-outlet></router-outlet>
   </div>
+
+  <app-doc-heading-navigator class="hidden xl:block sticky top-12 bottom-0 grow-0 shrink-0 w-[240px] max-h-[calc(100vh-48px)] overflow-auto font-semibold" [navigations]="headingNavigations"></app-doc-heading-navigator>
 </div>
 
+<app-footer></app-footer>

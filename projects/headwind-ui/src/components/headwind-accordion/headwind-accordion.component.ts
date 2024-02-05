@@ -23,6 +23,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   providers: [HeadwindAccordionService],
   host: {
     class: 'headwind-accordion',
+    ['[class.headwind-opened]']: 'opened',
   },
 })
 export class HeadwindAccordionComponent implements AfterViewInit, OnDestroy {
@@ -42,8 +43,6 @@ export class HeadwindAccordionComponent implements AfterViewInit, OnDestroy {
       this.openedChange.emit(opened);
     });
   }
-
-  private _opened = false;
 
   get opened(): boolean {
     return this._headwindAccordionService.opened;
@@ -73,6 +72,14 @@ export class HeadwindAccordionComponent implements AfterViewInit, OnDestroy {
     clearTimeout(this._openTimeoutId);
   }
 
+  toggle(): void {
+    if (this.opened) {
+      this.close();
+    } else {
+      this.open();
+    }
+  }
+
   open(): void {
     if (this.accordionContentContainer && this.accordionContent && !this._contentEmbeddedViewRef) {
       this._contentEmbeddedViewRef = this.accordionContentContainer.createEmbeddedView(
@@ -81,6 +88,7 @@ export class HeadwindAccordionComponent implements AfterViewInit, OnDestroy {
     }
 
     this.openedChange.emit(true);
+    this._headwindAccordionService.opened = true;
   }
 
   close(): void {
@@ -89,5 +97,6 @@ export class HeadwindAccordionComponent implements AfterViewInit, OnDestroy {
     delete this._contentEmbeddedViewRef;
 
     this.openedChange.emit(false);
+    this._headwindAccordionService.opened = false;
   }
 }

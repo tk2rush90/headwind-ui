@@ -7,6 +7,9 @@ import { CheckboxPreviewComponent } from '../checkbox-preview/checkbox-preview.c
   imports: [CheckboxPreviewComponent],
   templateUrl: './preview-item.component.html',
   styleUrl: './preview-item.component.scss',
+  host: {
+    class: 'block space-y-2',
+  },
 })
 export class PreviewItemComponent {
   @Input({ required: true }) name!: string;

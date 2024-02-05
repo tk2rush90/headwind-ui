@@ -26,7 +26,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class HeadwindTabContentGroupComponent implements AfterViewInit, OnDestroy {
   @ViewChild('tabContentContainer', { read: ViewContainerRef }) tabContentContainer?: ViewContainerRef;
   @ContentChildren(HeadwindTabContentDirective, { descendants: true })
-  tabContentList?: QueryList<HeadwindTabContentDirective>;
+  tabContentTemplateList?: QueryList<HeadwindTabContentDirective>;
 
   private _previousTabKey: any;
   private _tabContentEmbeddedViewRef?: EmbeddedViewRef<any>;
@@ -60,6 +60,6 @@ export class HeadwindTabContentGroupComponent implements AfterViewInit, OnDestro
   }
 
   getTabContentByKey(key: string): HeadwindTabContentDirective | undefined {
-    return this.tabContentList?.find((tabContent) => tabContent.headwindTabContent.tabKey === key);
+    return this.tabContentTemplateList?.find((tabContentTemplate) => tabContentTemplate.tabKey === key);
   }
 }

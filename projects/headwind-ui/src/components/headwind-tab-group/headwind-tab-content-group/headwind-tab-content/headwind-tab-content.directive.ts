@@ -1,15 +1,11 @@
 import { Directive, Input, TemplateRef } from '@angular/core';
 
-export interface HeadwindTabContentInput {
-  tabKey: any;
-}
-
 @Directive({
-  selector: '[headwindTabContent]',
+  selector: 'ng-template[headwindTabContent]',
   standalone: true,
 })
 export class HeadwindTabContentDirective {
-  @Input({ required: true }) headwindTabContent!: HeadwindTabContentInput;
+  @Input({ required: true }) tabKey: any;
 
   constructor(public readonly templateRef: TemplateRef<any>) {}
 }

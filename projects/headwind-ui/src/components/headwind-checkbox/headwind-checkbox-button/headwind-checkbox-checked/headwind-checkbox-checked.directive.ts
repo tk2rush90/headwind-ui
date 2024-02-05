@@ -1,7 +1,7 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[headwindCheckboxChecked]',
+  selector: 'ng-template[headwindCheckboxChecked]',
   standalone: true,
 })
 export class HeadwindCheckboxCheckedDirective {

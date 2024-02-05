@@ -20,7 +20,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrl: './headwind-checkbox-button.component.scss',
   host: {
     class: 'headwind-checkbox-button',
-    ['[class.headwind-checked]']: 'checked',
   },
 })
 export class HeadwindCheckboxButtonComponent implements AfterViewInit, OnDestroy {

@@ -7,8 +7,9 @@
     "strict": true,
     "noImplicitOverride": true,
     "paths": {
-      "headwind-ui": [
-        "./dist/headwind-ui"
+      "@favian/headwind-ui": [
+        "./dist/headwind-ui",
+        "./projects/headwind-ui/src/public-api.ts"
       ]
     },
     "noPropertyAccessFromIndexSignature": true,

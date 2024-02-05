@@ -12,6 +12,8 @@ import { SwitchPreviewComponent } from './switch-preview/switch-preview.componen
 import { TabGroupPreviewComponent } from './tab-group-preview/tab-group-preview.component';
 import { PreviewItemComponent } from './preview-item/preview-item.component';
 import { RouterLink } from '@angular/router';
+import { VersionChipComponent } from '../../common/version-chip/version-chip.component';
+import { FooterComponent } from '../../common/footer/footer.component';
 
 @Component({
   selector: 'app-main-page',
@@ -30,6 +32,8 @@ import { RouterLink } from '@angular/router';
     TabGroupPreviewComponent,
     PreviewItemComponent,
     RouterLink,
+    VersionChipComponent,
+    FooterComponent,
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',

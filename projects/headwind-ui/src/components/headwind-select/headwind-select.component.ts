@@ -18,8 +18,8 @@ import { HeadwindClickDetector } from '../../services/headwind-click-detector.se
 import { HeadwindControlValueAccessor } from '../../abstracts/headwind-control-value-accessor';
 import { HeadwindAnimator } from '../../services/headwind-animator';
 import { HeadwindSelectService } from './service/headwind-select.service';
-import { HeadwindOptionsTemplateDirective } from './headwind-options-template/headwind-options-template.directive';
-import { HeadwindOptionsComponent } from './headwind-options-template/headwind-options/headwind-options.component';
+import { HeadwindOptionsOverlayDirective } from './headwind-options-overlay/headwind-options-overlay.directive';
+import { HeadwindOptionsOverlayComponent } from './headwind-options-overlay/headwind-options-overlay.component';
 
 @Component({
   selector: 'headwind-select',
@@ -41,10 +41,10 @@ import { HeadwindOptionsComponent } from './headwind-options-template/headwind-o
 export class HeadwindSelectComponent extends HeadwindControlValueAccessor implements AfterViewInit, OnDestroy {
   @Output() valueChange = new EventEmitter<any>();
 
-  @ContentChild(HeadwindOptionsTemplateDirective, { descendants: true })
-  optionsTemplate?: HeadwindOptionsTemplateDirective;
+  @ContentChild(HeadwindOptionsOverlayDirective, { descendants: true })
+  optionsTemplate?: HeadwindOptionsOverlayDirective;
 
-  @ContentChild(HeadwindOptionsComponent, { descendants: true }) options?: HeadwindOptionsComponent;
+  @ContentChild(HeadwindOptionsOverlayComponent, { descendants: true }) options?: HeadwindOptionsOverlayComponent;
 
   private _optionsViewRef?: EmbeddedViewRef<any>;
   private _openTimeoutId?: any;
@@ -163,14 +163,6 @@ export class HeadwindSelectComponent extends HeadwindControlValueAccessor implem
     this.open();
   }
 
-  focus(): void {
-    this._elementRef.nativeElement.focus();
-  }
-
-  blur(): void {
-    this._elementRef.nativeElement.blur();
-  }
-
   open(): void {
     if (this.isDisabled || this._headwindSelectService.optionsOpened) {
       return;
@@ -186,13 +178,13 @@ export class HeadwindSelectComponent extends HeadwindControlValueAccessor implem
       return;
     }
 
-    this._optionsViewRef = this._headwindOverlayService.open(this.optionsTemplate.templateRef);
-
-    this._optionsViewRef.onDestroy(() => this._afterClosed()); // for outside click closing of options
+    this._optionsViewRef = this._headwindOverlayService.open(this.optionsTemplate.templateRef, () =>
+      this._afterClosed(),
+    );
 
     this._headwindAnimator.addListener(this._optionsPositionListener);
 
-    this.blur();
+    this._elementRef.nativeElement.blur();
     this._headwindSelectService.optionsOpened = true;
 
     clearTimeout(this._openTimeoutId);
@@ -213,8 +205,6 @@ export class HeadwindSelectComponent extends HeadwindControlValueAccessor implem
   }
 
   private _afterClosed(): void {
-    this.focus();
-
     clearTimeout(this._closeTimeoutId);
 
     // timeout to prevent re-opening options after closed

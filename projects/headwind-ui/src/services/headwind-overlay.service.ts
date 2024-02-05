@@ -31,11 +31,16 @@ export class HeadwindOverlayService {
   /**
    * Open a template as overlay
    * @param templateRef - TemplateRef to open as an overlay
+   * @param onDestroy - Callback to call when destroying EmbeddedViewRef
    */
-  open<C = any>(templateRef: TemplateRef<C>): EmbeddedViewRef<C> {
+  open<C = any>(templateRef: TemplateRef<C>, onDestroy?: () => void): EmbeddedViewRef<C> {
     const embeddedViewRef = this.viewContainerRef.createEmbeddedView(templateRef);
 
     this._openedViewRefs.push(embeddedViewRef);
+
+    if (onDestroy) {
+      embeddedViewRef.onDestroy(onDestroy);
+    }
 
     return embeddedViewRef;
   }

@@ -25,4 +25,20 @@ export class HeadwindAccordionButtonComponent {
   onHostClick(): void {
     this._headwindAccordionService.toggleOpened.emit();
   }
+
+  @HostListener('keydown.space', ['$event'])
+  onHostSpaceKeydown(event: Event): void {
+    event.stopPropagation();
+    event.preventDefault();
+
+    this._headwindAccordionService.toggleOpened.emit();
+  }
+
+  @HostListener('keydown.enter', ['$event'])
+  onHostEnterKeydown(event: Event): void {
+    event.stopPropagation();
+    event.preventDefault();
+
+    this._headwindAccordionService.toggleOpened.emit();
+  }
 }

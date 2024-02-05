@@ -1,11 +1,12 @@
-import { Component, ContentChild, ElementRef, EmbeddedViewRef, OnDestroy } from '@angular/core';
+import { Component, ContentChild, EmbeddedViewRef, OnDestroy } from '@angular/core';
 import { HeadwindPopoverService } from './services/headwind-popover.service';
 import { HeadwindOverlayService } from '../../services/headwind-overlay.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { HeadwindPopoverOverlayComponent } from './headwind-popover-overlay/headwind-popover-overlay.component';
 import { HeadwindAnimator } from '../../services/headwind-animator';
-import { HeadwindPopoverOverlayTemplateDirective } from './headwind-popover-overlay-template/headwind-popover-overlay-template.directive';
+import { HeadwindPopoverOverlayDirective } from './headwind-popover-overlay/headwind-popover-overlay.directive';
 import { HeadwindErrors } from '../../constants/headwind-errors';
+import { HeadwindPopoverButtonDirective } from './headwind-popover-button/headwind-popover-button.directive';
 
 @Component({
   selector: 'headwind-popover',
@@ -19,29 +20,29 @@ import { HeadwindErrors } from '../../constants/headwind-errors';
   providers: [HeadwindPopoverService],
 })
 export class HeadwindPopoverComponent implements OnDestroy {
-  @ContentChild(HeadwindPopoverOverlayTemplateDirective, { descendants: true })
-  popoverOverlayTemplate?: HeadwindPopoverOverlayTemplateDirective;
+  @ContentChild(HeadwindPopoverOverlayDirective, { descendants: true })
+  popoverOverlayTemplate?: HeadwindPopoverOverlayDirective;
 
   @ContentChild(HeadwindPopoverOverlayComponent, { descendants: true })
   popoverOverlay?: HeadwindPopoverOverlayComponent;
+
+  @ContentChild(HeadwindPopoverButtonDirective, { descendants: true })
+  popoverButton?: HeadwindPopoverButtonDirective;
 
   private _popoverEmbeddedViewRef?: EmbeddedViewRef<any>;
   private _openTimeoutId?: any;
   private _closeTimeoutId?: any;
 
   constructor(
-    private readonly _elementRef: ElementRef<HTMLElement>,
     private readonly _headwindOverlayService: HeadwindOverlayService,
     private readonly _headwindPopoverService: HeadwindPopoverService,
     private readonly _headwindAnimator: HeadwindAnimator,
   ) {
     this._headwindPopoverService.openPopover.pipe(takeUntilDestroyed()).subscribe(() => {
-      console.log('open');
       this.open();
     });
 
     this._headwindPopoverService.closePopover.pipe(takeUntilDestroyed()).subscribe(() => {
-      console.log('close');
       this.close();
     });
   }
@@ -61,12 +62,13 @@ export class HeadwindPopoverComponent implements OnDestroy {
       return;
     }
 
-    this._popoverEmbeddedViewRef = this._headwindOverlayService.open(this.popoverOverlayTemplate.templateRef);
+    this._popoverEmbeddedViewRef = this._headwindOverlayService.open(this.popoverOverlayTemplate.templateRef, () =>
+      this._afterClosed(),
+    );
+
     this._headwindPopoverService.popoverOpened = true;
 
     this._headwindAnimator.addListener(this._popoverPositionListener);
-
-    this._popoverEmbeddedViewRef.onDestroy(() => this._afterClosed());
 
     clearTimeout(this._openTimeoutId);
 
@@ -97,6 +99,8 @@ export class HeadwindPopoverComponent implements OnDestroy {
   }
 
   private _popoverPositionListener = () => {
-    this.popoverOverlay?.updatePosition(this._elementRef.nativeElement);
+    if (this.popoverButton) {
+      this.popoverOverlay?.updatePosition(this.popoverButton.nativeElement);
+    }
   };
 }

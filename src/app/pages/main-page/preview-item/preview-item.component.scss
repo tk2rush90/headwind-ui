@@ -2,8 +2,6 @@
 
 @layer components {
   :host {
-    @apply block space-y-2;
-
     &:hover {
       .preview-name {
         @apply text-rose-500 underline;
@@ -13,13 +11,5 @@
         @apply bg-rose-50;
       }
     }
-  }
-
-  .preview-name {
-    @apply text-base font-semibold px-4 transition-colors;
-  }
-
-  .preview {
-    @apply block bg-stone-50 rounded-2xl overflow-hidden h-[140px] relative transition-colors;
   }
 }

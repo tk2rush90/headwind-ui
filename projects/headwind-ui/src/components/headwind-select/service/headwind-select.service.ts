@@ -1,8 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HeadwindSelectComponent } from '@favian/headwind-ui';
 
 @Injectable()
 export class HeadwindSelectService {
+  static nextFocusingSelect$ = new BehaviorSubject<HeadwindSelectComponent | null>(null);
+
   /** Emits with value of option when selected */
   selectOption = new EventEmitter<any>();
 
@@ -18,6 +21,20 @@ export class HeadwindSelectService {
   /** Current value of select */
   value$ = new BehaviorSubject<any>(undefined);
 
+  /** Multiple status */
+  multiple$ = new BehaviorSubject(false);
+
+  /** Options opened status */
+  optionsOpened$ = new BehaviorSubject(false);
+
+  get nextFocusingSelect(): HeadwindSelectComponent | null {
+    return HeadwindSelectService.nextFocusingSelect$.value;
+  }
+
+  set nextFocusingSelect(value: HeadwindSelectComponent | null) {
+    HeadwindSelectService.nextFocusingSelect$.next(value);
+  }
+
   get value(): any {
     return this.value$.value;
   }
@@ -26,9 +43,6 @@ export class HeadwindSelectService {
     this.value$.next(value);
   }
 
-  /** Multiple status */
-  multiple$ = new BehaviorSubject(false);
-
   get multiple(): boolean {
     return this.multiple$.value;
   }
@@ -36,9 +50,6 @@ export class HeadwindSelectService {
   set multiple(value: boolean) {
     this.multiple$.next(value);
   }
-
-  /** Options opened status */
-  optionsOpened$ = new BehaviorSubject(false);
 
   get optionsOpened(): boolean {
     return this.optionsOpened$.value;

@@ -104,7 +104,7 @@ export class HeadwindPopoverOverlayComponent implements AfterViewInit {
   }
 
   private _updateHorizontalDirectionByPriority(host: HTMLElement, hostDomRect: DOMRect, buttonDomRect: DOMRect): void {
-    if (this.pinPriority === 'right') {
+    if (this.directionPriority === 'left') {
       if (this._headwindWindowService.isLeftSpaceAvailable(buttonDomRect.left, hostDomRect.width)) {
         this._renderer.setStyle(host, 'right', `calc(100% - ${buttonDomRect.left}px)`);
         this._emitActualDirectionLeft();
@@ -156,7 +156,7 @@ export class HeadwindPopoverOverlayComponent implements AfterViewInit {
   }
 
   private _updateHorizontalDirectionPin(host: HTMLElement, hostDomRect: DOMRect, buttonDomRect: DOMRect): void {
-    if (this.pinPriority === 'top') {
+    if (this.pinPriority === 'bottom') {
       if (this._headwindWindowService.isTopSpaceAvailable(buttonDomRect.bottom, hostDomRect.height)) {
         this._renderer.setStyle(host, 'bottom', `calc(100% - ${buttonDomRect.bottom}px)`);
         this._emitActualPinTop();
@@ -176,7 +176,7 @@ export class HeadwindPopoverOverlayComponent implements AfterViewInit {
         this._emitActualPinTop();
       } else {
         this._renderer.setStyle(host, 'top', buttonDomRect.top + 'px');
-        this._emitActualPinTop();
+        this._emitActualPinBottom();
       }
     }
   }

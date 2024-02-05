@@ -1,5 +1,4 @@
 import { booleanAttribute, Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import { NgTemplateOutlet } from '@angular/common';
 import { HeadwindControlValueAccessor } from '../../abstracts/headwind-control-value-accessor';
 import { HeadwindClickDetector } from '../../services/headwind-click-detector.service';
 import { HeadwindCheckboxService } from './service/headwind-checkbox.service';
@@ -7,7 +6,7 @@ import { HeadwindCheckboxService } from './service/headwind-checkbox.service';
 @Component({
   selector: 'headwind-checkbox',
   standalone: true,
-  imports: [NgTemplateOutlet],
+  imports: [],
   templateUrl: './headwind-checkbox.component.html',
   styleUrl: './headwind-checkbox.component.scss',
   providers: [HeadwindClickDetector, HeadwindCheckboxService],
