@@ -1,6 +1,6 @@
 {
   "name": "@favian/headwind-ui",
-  "version": "17.0.1",
+  "version": "17.0.2",
   "peerDependencies": {
     "@angular/common": "^17.0.0",
     "@angular/core": "^17.0.0"
@@ -13,7 +13,7 @@
     "name": "tk2rush90",
     "email": "tk2rush90@gmail.com"
   },
-  "description": "Styleless Angular components to integrate with Tailwind CSS",
+  "description": "Headless UI for Angular - Styleless Angular components to integrate with Tailwind CSS",
   "keywords": [
     "Angular",
     "Favian",

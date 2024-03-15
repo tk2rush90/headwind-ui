@@ -38,15 +38,19 @@ export class HeadwindOverlayService {
 
     this._openedViewRefs.push(embeddedViewRef);
 
-    if (onDestroy) {
-      embeddedViewRef.onDestroy(onDestroy);
-    }
+    embeddedViewRef.onDestroy(() => {
+      this._openedViewRefs = this._openedViewRefs.filter((_openedViewRef) => _openedViewRef !== embeddedViewRef);
+
+      if (onDestroy) {
+        onDestroy();
+      }
+    });
 
     return embeddedViewRef;
   }
 
   closeLatest(): void {
-    const latestViewRef = this._openedViewRefs.pop();
+    const latestViewRef = this._openedViewRefs[this._openedViewRefs.length - 1]; // item is removed from the `onDestroy()` method
 
     latestViewRef?.destroy();
   }
